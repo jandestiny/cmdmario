@@ -39,10 +39,10 @@ public class Game_Loop {
 		// Erstellt leere Spielfeld Matrix
 		// Game_Loop.field = new game_object[y_value][x_value];
 
-		// Befüllt Spielfeld Matrix mit Startkomponenten
+		// Befï¿½llt Spielfeld Matrix mit Startkomponenten
 		generate_field();
 
-		// Spielschleife läuft solang Spieler mehr als 0 Leben hat
+		// Spielschleife lï¿½uft solang Spieler mehr als 0 Leben hat
 		while (p.getLives() > 0) {
 
 			if (ticks % 20 == 0) {
@@ -65,16 +65,16 @@ public class Game_Loop {
 				move_field();
 
 				if (ticks % 8 == 0 && ticks > 10) {
-					// Generiert an zufälliger Stelle Gegner
+					// Generiert an zufï¿½lliger Stelle Gegner
 					random_spawn_enemy();
 				}
 				if (ticks % 50 == 0 && ticks > 40) {
 
-					// Generiert an zufälliger Stelle ein Hinderniss
+					// Generiert an zufï¿½lliger Stelle ein Hinderniss
 					generate_obstacle();
 				}
 			}
-			// Fügt Tick Delay ein
+			// Fï¿½gt Tick Delay ein
 			Thread.sleep(delay);
 
 			// Testet ob Spiel pausiert wurde
@@ -82,7 +82,7 @@ public class Game_Loop {
 				Thread.sleep(32);
 			}
 
-			// Löscht Konsoleninhalt
+			// Lï¿½scht Konsoleninhalt
 			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 
 			// Bewegt Spieler an richtige Position
@@ -228,7 +228,7 @@ public class Game_Loop {
 		field[p.getyPos()][p.getxPos()] = p;
 		display_field("");
 		Thread.sleep(delay);
-		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor(); //haha test
 		field[b.getyPos() - 3][b.getxPos() - 5] = obstacle;
 		field[p.getyPos()][p.getxPos()] = p;
 		display_field("");
@@ -308,7 +308,7 @@ public class Game_Loop {
 
 						}
 
-						// Selber Test für Gegner Projektile
+						// Selber Test fï¿½r Gegner Projektile
 					}
 				}
 
@@ -355,7 +355,7 @@ public class Game_Loop {
 
 		for (int i = 2; i < y_value - 1; i++) {
 			for (int j = 1; j < x_value - 1; j++) {
-				// Test ob gewähltes Feld ein bewegbars ist
+				// Test ob gewï¿½hltes Feld ein bewegbars ist
 				if (field[i][j].isCanMove()) {
 
 					// Testen ob es sich um Hinderniss handelt
@@ -413,7 +413,7 @@ public class Game_Loop {
 
 	public static void batchFunction(String func) {
 		try {
-			new ProcessBuilder("cmd", "/c", func).inheritIO().start().waitFor(); // Erklärung finden
+			new ProcessBuilder("cmd", "/c", func).inheritIO().start().waitFor(); // Erklï¿½rung finden
 		} catch (Exception E) {
 			System.out.println(E);
 		}

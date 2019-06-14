@@ -57,7 +57,7 @@ public class Game_Loop {
 			move_projectiles();
 
 			// Gibt Feld aus
-			display_field();
+			display_field("");
 
 			if (ticks % 2 == 0) {
 
@@ -121,11 +121,11 @@ public class Game_Loop {
 
 		int g = 0;
 
-		while (g < x_value) {
+		while (g < x_value&&p.getLives()>0) {
 
 			move_field();
 			move_projectiles();
-			display_field();
+			display_field("");
 			Thread.sleep(64);
 			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 			field[p.getyPos()][p.getxPos()] = p;
@@ -151,7 +151,7 @@ public class Game_Loop {
 			int random = r.nextInt(4);
 
 			field[p.getyPos()][p.getxPos()] = p;
-			display_field();
+			display_field("\tBoss: "+b.getLifes());
 
 			Thread.sleep(32);
 			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -191,31 +191,31 @@ public class Game_Loop {
 
 	private static void boss_intro(int delay) throws InterruptedException, IOException {
 
-		display_field();
+		display_field("");
 		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		b.setSkin('<');
 		field[p.getyPos()][p.getxPos()] = p;
-		display_field();
+		display_field("");
 		Thread.sleep(delay);
 		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		b.setSkin('v');
 		field[p.getyPos()][p.getxPos()] = p;
-		display_field();
+		display_field("");
 		Thread.sleep(delay);
 		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		b.setSkin('>');
 		field[p.getyPos()][p.getxPos()] = p;
-		display_field();
+		display_field("");
 		Thread.sleep(delay);
 		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		b.setSkin('^');
 		field[p.getyPos()][p.getxPos()] = p;
-		display_field();
+		display_field("");
 		Thread.sleep(delay);
 		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		b.setSkin('<');
 		field[p.getyPos()][p.getxPos()] = p;
-		display_field();
+		display_field("");
 		Thread.sleep(delay);
 		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 
@@ -226,25 +226,25 @@ public class Game_Loop {
 
 		field[b.getyPos() + 3][b.getxPos() - 5] = obstacle;
 		field[p.getyPos()][p.getxPos()] = p;
-		display_field();
+		display_field("");
 		Thread.sleep(delay);
 		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		field[b.getyPos() - 3][b.getxPos() - 5] = obstacle;
 		field[p.getyPos()][p.getxPos()] = p;
-		display_field();
+		display_field("");
 		Thread.sleep(delay);
 		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 		field[b.getyPos()][b.getxPos() - 7] = obstacle;
 		field[p.getyPos()][p.getxPos()] = p;
-		display_field();
+		display_field("");
 		Thread.sleep(delay);
 		new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 
 	}
 
-	private static void display_field() {
+	private static void display_field(String additional_text) {
 
-		draw_actionbar("\tLives: " + p.getLives() + "\tScore: " + score);
+		draw_actionbar("\tLives: " + p.getLives() + "\tScore: " + score+additional_text);
 
 		String field_string = "";
 

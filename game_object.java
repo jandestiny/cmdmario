@@ -7,7 +7,7 @@ public class game_object {
 	private char skin = ' ';
 	
 	
-	//empty field constructor
+	//empty field constructor **FRAGE: das hier führt meiner Meinung nach zu Verwirrung und erleichtert nur sehr wenig Schreibarbeit. Wirkt so, als würde man ein GameObject ohne Skin erstellen**
 	public game_object() {
 		super();
 		this.isSolid = false;

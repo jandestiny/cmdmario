@@ -10,7 +10,7 @@ public class test {
 	public static void main(String[] args) throws InterruptedException, IOException {
 
 		Game_Loop.boss_stage();
-		//Test test test
+		//Test test test test test
 
 	}
 }

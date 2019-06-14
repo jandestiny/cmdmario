@@ -2,7 +2,7 @@ package cmdmario_project;
 
 public class projectile extends game_object{
 
-	private boolean p_projectile;
+	private boolean p_projectile;	//**Name ändern bitte**
 	
 	public projectile(boolean p_projectile) {
 		this.p_projectile = p_projectile;

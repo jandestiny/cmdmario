@@ -4,18 +4,18 @@ import java.io.IOException;
 import java.util.Random;
 import javax.swing.JFrame;
 
-public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN DURCHFÜHREN, BEVOR WIR UNS BESPROCHEN HABEN
-	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN DURCHFÜHREN, BEVOR WIR UNS BESPROCHEN HABEN
-	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN DURCHFÜHREN, BEVOR WIR UNS BESPROCHEN HABEN
-	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN DURCHFÜHREN, BEVOR WIR UNS BESPROCHEN HABEN
-	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN DURCHFÜHREN, BEVOR WIR UNS BESPROCHEN HABEN
-	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN DURCHFÜHREN, BEVOR WIR UNS BESPROCHEN HABEN
-	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN DURCHFÜHREN, BEVOR WIR UNS BESPROCHEN HABEN
-	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN DURCHFÜHREN, BEVOR WIR UNS BESPROCHEN HABEN
-	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN DURCHFÜHREN, BEVOR WIR UNS BESPROCHEN HABEN
+public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ï¿½NDERUNGEN DURCHFï¿½HREN, BEVOR WIR UNS BESPROCHEN HABEN
+	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ï¿½NDERUNGEN DURCHFï¿½HREN, BEVOR WIR UNS BESPROCHEN HABEN
+	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ï¿½NDERUNGEN DURCHFï¿½HREN, BEVOR WIR UNS BESPROCHEN HABEN
+	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ï¿½NDERUNGEN DURCHFï¿½HREN, BEVOR WIR UNS BESPROCHEN HABEN
+	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ï¿½NDERUNGEN DURCHFï¿½HREN, BEVOR WIR UNS BESPROCHEN HABEN
+	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ï¿½NDERUNGEN DURCHFï¿½HREN, BEVOR WIR UNS BESPROCHEN HABEN
+	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ï¿½NDERUNGEN DURCHFï¿½HREN, BEVOR WIR UNS BESPROCHEN HABEN
+	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ï¿½NDERUNGEN DURCHFï¿½HREN, BEVOR WIR UNS BESPROCHEN HABEN
+	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ï¿½NDERUNGEN DURCHFï¿½HREN, BEVOR WIR UNS BESPROCHEN HABEN
 	
 	//**Allgemeine Frage: Wieso sind einige Funktionen/Variablen private und einige nicht? Eigentlich sollten alle public sein, spricht nichts dagegen, oder?**
-	//**Variablen Namen müssen DRINGEND überarbeitet werden, sind teilweise zu unverständlich
+	//**Variablen Namen mï¿½ssen DRINGEND ï¿½berarbeitet werden, sind teilweise zu unverstï¿½ndlich
 
 	public static void main(String[] args) throws InterruptedException, IOException {
 		init();
@@ -38,7 +38,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 
 	private static game_object[][] field = new game_object[y_value][x_value];	//Erstellung der Spielfeld-Matrix
 
-	public static void init() throws InterruptedException, IOException {	//Initialisierung der Spielfeld-Matrix (Hintergrund, Spielerpositionierung, Ränder, GAMELOOP, Ende
+	public static void init() throws InterruptedException, IOException {	//Initialisierung der Spielfeld-Matrix (Hintergrund, Spielerpositionierung, Rï¿½nder, GAMELOOP, Ende
 
 		batchFunction("color a");
 
@@ -108,14 +108,14 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 
 	}
 
-	private static void generate_field() {	//Befüllt eine NULL-Spielfeld-Matrix
+	private static void generate_field() {	//Befï¿½llt eine NULL-Spielfeld-Matrix
 
 		for (int i = 0; i < y_value; i++) {
 			for (int j = 0; j < x_value; j++) {
 				if (i == 1 || i == y_value - 1) {		//Oberer und unterer Rand '~'
 					field[i][j] = new game_object('~');
-				} else if (j == x_value - 1 || j == 0) {	//Erste Spalte und letzte Spalte (Ränder ausgenommen) werden geleert -> also ' '
-					field[i][j] = new game_object(' ');	//**Nach game_object Logik, wäre das hier ein Solides leeres Feld? Ist das so gedacht?**
+				} else if (j == x_value - 1 || j == 0) {	//Erste Spalte und letzte Spalte (Rï¿½nder ausgenommen) werden geleert -> also ' '
+					field[i][j] = new game_object(' ');	//**Nach game_object Logik, wï¿½re das hier ein Solides leeres Feld? Ist das so gedacht?**
 				} else {									//Alle anderen Felder bekommen ein leeres GameObject zugeschrieben
 					field[i][j] = new game_object();
 				}
@@ -130,9 +130,9 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 
 		b.setLifes(boss_hp);
 
-		int g = 0;	//**Wofür steht g?**
+		int g = 0;	//**Wofï¿½r steht g?**
 
-		while (g < x_value && p.getLives() > 0) {	//Alle Objekte aus der Matrix schieben ohne neue zu erstellen, sodass die Matrix frei für den Bossfight wird
+		while (g < x_value && p.getLives() > 0) {	//Alle Objekte aus der Matrix schieben ohne neue zu erstellen, sodass die Matrix frei fï¿½r den Bossfight wird
 			move_field();
 			move_projectiles();
 			display_field("");
@@ -154,7 +154,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 
 		boss_intro(400);
 
-		while (b.getLifes() > 0 && p.getLives() > 0) {	//Solange beide Entitäten noch am Leben sind, läuft der Bossfight
+		while (b.getLifes() > 0 && p.getLives() > 0) {	//Solange beide Entitï¿½ten noch am Leben sind, lï¿½uft der Bossfight
 
 			field[b.getyPos()][b.getxPos()] = b;	//Boss wird platziert
 
@@ -169,7 +169,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 
 			move_projectiles();
 
-			if (ticks % 2 == 0) {	//Bei jedem zweiten Tick schießt der Boss ein Projektil
+			if (ticks % 2 == 0) {	//Bei jedem zweiten Tick schieï¿½t der Boss ein Projektil
 				enemy_projectile();
 			}
 
@@ -184,7 +184,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 
 			}
 
-			field[b.getyPos()][b.getxPos()] = new game_object();	//Boss wird am Ende jedes Durchgangs gelöscht, sodass er weg ist, wenn er keine Leben mehr hat
+			field[b.getyPos()][b.getxPos()] = new game_object();	//Boss wird am Ende jedes Durchgangs gelï¿½scht, sodass er weg ist, wenn er keine Leben mehr hat
 			ticks++;
 		}
 
@@ -195,9 +195,9 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 		
 		boss_frame=ticks+100;		//**VORSCHLAG: anstatt den abstand zwischen den Boss-Leveln immer auf 100 zu haben, diese variabel machen. z.B. + (boss_hp*100)**
 		
-		Random c = new Random();	//**Man muss nicht jedes mal ein neues Random Objekt erstellen um eine neue zufällige Zahl zu erzeugen, evtl bei Globalen Variablen ein Random-Objekt erstellen und dann wiederverwenden**
-		int rc = c.nextInt(b_colors.length-1);	//Zufällige Farbe für nächstes Level wählen
-		batchFunction(b_colors[rc]);	//Farbe übernehmen
+		Random c = new Random();	//**Man muss nicht jedes mal ein neues Random Objekt erstellen um eine neue zufï¿½llige Zahl zu erzeugen, evtl bei Globalen Variablen ein Random-Objekt erstellen und dann wiederverwenden**
+		int rc = c.nextInt(b_colors.length-1);	//Zufï¿½llige Farbe fï¿½r nï¿½chstes Level wï¿½hlen
+		batchFunction(b_colors[rc]);	//Farbe ï¿½bernehmen
 	}
 
 	private static void boss_intro(int delay) throws InterruptedException, IOException { //Einleitender "Tanz" des Bosses **Muss der Screen nach jeder Bewegung gecleared werden? siehe display_field**
@@ -253,10 +253,10 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 
 	}
 
-	private static void display_field(String additional_text) {	//Schreibt Objekt-Skins in einen String und gibt diesen aus & aktualisiert ActionBar mit zusätzlichem Text **Evtl. Overloading funktion ohne String Parameter erstellen** 
+	private static void display_field(String additional_text) {	//Schreibt Objekt-Skins in einen String und gibt diesen aus & aktualisiert ActionBar mit zusï¿½tzlichem Text **Evtl. Overloading funktion ohne String Parameter erstellen** 
 
 		//**batchfunction(cls) sollte hier jedes mal passieren, spart an anderen Stellen viel Code**
-		draw_actionbar("\tLives: " + p.getLives() + "\tScore: " + score+additional_text);	//**VORSCHLAG: Leerzeichen zwischen Score und Additional einfügen?**
+		draw_actionbar("\tLives: " + p.getLives() + "\tScore: " + score+additional_text);	//**VORSCHLAG: Leerzeichen zwischen Score und Additional einfï¿½gen?**
 
 		String field_string = "";
 
@@ -278,10 +278,10 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 		obstacle.setSkin('|');
 		obstacle.setSolid(true);
 
-		int y = rand.nextInt(y_value - 5) + 2;	//Spawnhöhe zufällig zwischen 2 und yVal-5
+		int y = rand.nextInt(y_value - 5) + 2;	//Spawnhï¿½he zufï¿½llig zwischen 2 und yVal-5
 
 		if (field[y][x_value - 2] instanceof player || field[y + 1][x_value - 2] instanceof player	|| field[y + 2][x_value - 2] instanceof player) {	
-			//Hindernis wird 3 Felder hoch. Wenn Spieler in einem der drei Felder ist, wird er ein Feld zurück gesetzt
+			//Hindernis wird 3 Felder hoch. Wenn Spieler in einem der drei Felder ist, wird er ein Feld zurï¿½ck gesetzt
 			p.setxPos(p.getxPos() - 1);
 		}
 
@@ -291,7 +291,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 
 	}
 
-	private static void move_projectiles() {	//Geht Zeile für Zeile, angefangen bei der untersten, von rechts nach links die Matrix durch und testet auf mögliche Projektil-Kollisionen
+	private static void move_projectiles() {	//Geht Zeile fï¿½r Zeile, angefangen bei der untersten, von rechts nach links die Matrix durch und testet auf mï¿½gliche Projektil-Kollisionen
 
 		for (int y = y_value - 1; y > -1; y--) {
 			for (int x = x_value - 1; x > -1; x--) {
@@ -300,17 +300,17 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 				if (field[y][x] instanceof projectile) {
 					if (((projectile) field[y][x]).isP_projectile() == true) {
 						
-						if (field[y][x + 1] instanceof enemy) {		//Gegner-Kollision: Projektil und Gegner werden zerstört, und Spieler bekommt 50 Punkte
+						if (field[y][x + 1] instanceof enemy) {		//Gegner-Kollision: Projektil und Gegner werden zerstï¿½rt, und Spieler bekommt 50 Punkte
 							field[y][x] = new game_object();
 							field[y][x + 1] = new game_object();
 							score += 50;
 
 						} else if (field[y][x + 1].isSolid()) {	//Solid-Kollisionen
 							
-							if (field[y][x + 1] instanceof boss) {	//Boss-Kollision: Projektil wird zerstört, Boss bekommt ein Leben abgezogen
+							if (field[y][x + 1] instanceof boss) {	//Boss-Kollision: Projektil wird zerstï¿½rt, Boss bekommt ein Leben abgezogen
 								b.setLifes(b.getLifes() - 1);
 								field[y][x] = new game_object();
-							} else {								//Hindernis(Obstacle)-Kollision: Projektil wird gelöscht	**IDEE: Projektil wird bei jedem Vorgang gelöscht. Hier kann man irgendwie Code sparen später**
+							} else {								//Hindernis(Obstacle)-Kollision: Projektil wird gelï¿½scht	**IDEE: Projektil wird bei jedem Vorgang gelï¿½scht. Hier kann man irgendwie Code sparen spï¿½ter**
 								field[y][x] = new game_object();
 							}
 							
@@ -327,7 +327,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 			}
 		}
 
-		for (int y = 0; y < y_value - 1; y++) {		//Zweiter Durchgang für Boss-Projektile
+		for (int y = 0; y < y_value - 1; y++) {		//Zweiter Durchgang fï¿½r Boss-Projektile
 			for (int x = 1; x < x_value - 1; x++) {
 				if (field[y][x] instanceof projectile) {
 					if (((projectile) field[y][x]).isP_projectile() == false) {
@@ -351,7 +351,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 
 	}
 
-	private static void enemy_projectile() {	//Lässt Boss schießen
+	private static void enemy_projectile() {	//Lï¿½sst Boss schieï¿½en
 
 		int x = b.getxPos();
 		int y = b.getyPos();
@@ -363,7 +363,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 		}
 	}
 
-	private static void move_field() {		//"Physik"-Engine, bewegt Objekte von rechts nach links und kümmert sich um Kollisionen | Durchläuft Matrix Zeile für Zeile, von oben nach unten, von links nach rechts | Ränder und ActionBar ausgeschlossen
+	private static void move_field() {		//"Physik"-Engine, bewegt Objekte von rechts nach links und kï¿½mmert sich um Kollisionen | Durchlï¿½uft Matrix Zeile fï¿½r Zeile, von oben nach unten, von links nach rechts | Rï¿½nder und ActionBar ausgeschlossen
 
 		for (int i = 2; i < y_value - 1; i++) {
 			for (int j = 1; j < x_value - 1; j++) {
@@ -423,15 +423,15 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 		}
 	}
 
-	public static void batchFunction(String func) {	//Führt innerhalb der Windows-Konsole eine Batch-funktion aus
+	public static void batchFunction(String func) {	//Fï¿½hrt innerhalb der Windows-Konsole eine Batch-funktion aus
 		try {
-			new ProcessBuilder("cmd", "/c", func).inheritIO().start().waitFor(); //Ein neuer cmd-Prozess mit dem gewünschten Befehl erbt die Ein- und Ausgabe unserer Konsolenanwendung (startet innerhalb unserer Konsole) und wartet, bis der Befehl abgeschlossen ist
+			new ProcessBuilder("cmd", "/c", func).inheritIO().start().waitFor(); //Ein neuer cmd-Prozess mit dem gewï¿½nschten Befehl erbt die Ein- und Ausgabe unserer Konsolenanwendung (startet innerhalb unserer Konsole) und wartet, bis der Befehl abgeschlossen ist
 		} catch (Exception E) {
 			System.out.println(E);
 		}
 	}
 
-	private static void move_player() {	//Erstellt 1x1 JFrame mit KeyHandler damit Eingaben über die Tastatur verarbeitet werden können
+	private static void move_player() {	//Erstellt 1x1 JFrame mit KeyHandler damit Eingaben ï¿½ber die Tastatur verarbeitet werden kï¿½nnen
 		JFrame jf = new JFrame();
 
 		jf.setSize(1, 1);
@@ -448,14 +448,14 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 
 		int y = p.getyPos();
 
-		if (field[y - 1][x].isSolid() == false) {	//Angesteuertes Feld nicht solide? Dann Steuerung möglich
+		if (field[y - 1][x].isSolid() == false) {	//Angesteuertes Feld nicht solide? Dann Steuerung mï¿½glich
 			p.setxPos(x);
 			p.setyPos(y - 1);
 			field[y][x] = new game_object();
 
 		}
 
-		if (field[y - 1][x] instanceof enemy) {	//Angesteuertes Feld ist Gegner? Steuerung nicht möglich, Leben wird abgezogen und Gegner zerstört
+		if (field[y - 1][x] instanceof enemy) {	//Angesteuertes Feld ist Gegner? Steuerung nicht mï¿½glich, Leben wird abgezogen und Gegner zerstï¿½rt
 			p.setLives(p.getLives() - 1);
 			field[y][x] = new game_object();
 		}
@@ -515,11 +515,11 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 		}
 	}
 
-	public static void P_SHOOT() {	//Spieler schießt
+	public static void P_SHOOT() {	//Spieler schieï¿½t
 
 		projectile pr = new projectile(true);
 
-		if (p.getShot_counter() + 4 < ticks) {	//Es ist dem Spieler nur alle 4 Ticks möglich zu schießen
+		if (p.getShot_counter() + 4 < ticks) {	//Es ist dem Spieler nur alle 4 Ticks mï¿½glich zu schieï¿½en
 			if (field[p.getyPos()][p.getxPos() + 1].isSolid() == false) {	//Kollisions-Check direkt vor dem Spieler
 				field[p.getyPos()][p.getxPos() + 1] = pr;
 			}
@@ -527,7 +527,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 		}
 	}
 
-	public static void P_PAUSE() {	//Spieler pausiert das Spiel **Vielleicht auf Spiel beenden ändern?**
+	public static void P_PAUSE() {	//Spieler pausiert das Spiel **Vielleicht auf Spiel beenden ï¿½ndern?**
 		if (pause == true) {
 			pause = false;
 		} else {
@@ -536,7 +536,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 	}
 
 	@SuppressWarnings("unused")
-	private static void draw_actionbar_OLD(String s) {	//ActionBar zeichnen **VERALTET, ich habe mir mal die Freiheit genommen, meine Funktion hier drunter einzufügen**
+	private static void draw_actionbar_OLD(String s) {	//ActionBar zeichnen **VERALTET, ich habe mir mal die Freiheit genommen, meine Funktion hier drunter einzufï¿½gen**
 
 		if (s.length() < x_value) {
 			for (int i = 0; i < s.length(); i++) {
@@ -553,7 +553,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ÄNDERUNGEN 
 			field[0][i] = new game_object(' ');
 		}
 		
-		if(mlength < x_value-1) {	//Wenn die Nachricht weniger als die ganze Zeile einnimmt, wird ein Wert für die Zentrierung erstellt
+		if(mlength < x_value-1) {	//Wenn die Nachricht weniger als die ganze Zeile einnimmt, wird ein Wert fï¿½r die Zentrierung erstellt
 			padding = ((x_value-1)-mlength)/2;
 		}
 		

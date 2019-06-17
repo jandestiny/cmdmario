@@ -5,7 +5,7 @@ public class enemy extends game_object {
 	public enemy() {
 		super();
 		
-		this.setSkin('§');
+		this.setSkin('{');
 		this.setCanMove(true);
 		this.setSolid(false);
 	}

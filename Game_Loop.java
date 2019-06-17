@@ -39,9 +39,9 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE �NDERUNGE
 	private static game_object[][] field = new game_object[y_value][x_value];	//Erstellung der Spielfeld-Matrix
 
 	public static void init() throws InterruptedException, IOException {	//Initialisierung der Spielfeld-Matrix (Hintergrund, Spielerpositionierung, R�nder, GAMELOOP, Ende
-
+		//VORSCHLAG: init und gameLoop trennen, sonst passt der name nicht wirklich
+		
 		batchFunction("color a");
-
 		move_player();
 
 		p.setyPos(y_value / 2);
@@ -432,13 +432,21 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE �NDERUNGE
 	}
 
 	private static void move_player() {	//Erstellt 1x1 JFrame mit KeyHandler damit Eingaben �ber die Tastatur verarbeitet werden k�nnen
+		// BITTE NAMEN ÄNDERN (zb. initJFrame)
 		JFrame jf = new JFrame();
 
-		jf.setSize(1, 1);
+//		jf.setSize(1, 1);
+//		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		jf.setLocationRelativeTo(null);
+//
+//		jf.addKeyListener(new KeyHandler());
+//		jf.setVisible(true);
+		
+		jf.setSize(1,1);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		jf.setLocationRelativeTo(null);
-
+		jf.setLocation(0, 0); //positioniert jframe oben links
 		jf.addKeyListener(new KeyHandler());
+		jf.requestFocus();
 		jf.setVisible(true);
 	}
 

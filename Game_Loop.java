@@ -103,7 +103,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE �NDERUNGE
 			ticks++;
 
 		}
-		System.out.println("Game Over!");
+		display_field("    Game Over!");	//Anzeige von GameOver in ActionBar
 
 		System.exit(0);
 
@@ -163,7 +163,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE �NDERUNGE
 
 			field[p.getyPos()][p.getxPos()] = p;
 			
-			display_field("\tBoss: "+ b.getLifes());		//Frame mit Boss-Leben-Anzeige aktualisieren	
+			display_field("    Boss: "+ b.getLifes());		//Frame mit Boss-Leben-Anzeige aktualisieren	
 
 			Thread.sleep(32);
 			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -257,7 +257,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE �NDERUNGE
 	private static void display_field(String additional_text) {	//Schreibt Objekt-Skins in einen String und gibt diesen aus & aktualisiert ActionBar mit zus�tzlichem Text **Evtl. Overloading funktion ohne String Parameter erstellen** 
 
 		//**batchfunction(cls) sollte hier jedes mal passieren, spart an anderen Stellen viel Code**
-		draw_actionbar("\tLives: " + p.getLives() + "\tScore: " + score+additional_text);	//**VORSCHLAG: Leerzeichen zwischen Score und Additional einf�gen?**
+		draw_actionbar("Lives: " + p.getLives() + "     Score: " + score+additional_text);	//**VORSCHLAG: Leerzeichen zwischen Score und Additional einf�gen?**
 
 		String field_string = "";
 
@@ -267,7 +267,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE �NDERUNGE
 				field_string += field[i][j].getSkin();
 			}
 		}
-		System.out.println(field_string);
+		System.out.print(field_string);
 	}
 
 	public static void generate_obstacle() {	//Erstellt Hindernis im Spiel (Wand) und spawnt diese am rechten Ende der Matrix

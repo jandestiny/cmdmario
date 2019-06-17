@@ -42,6 +42,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE �NDERUNGE
 		//VORSCHLAG: init und gameLoop trennen, sonst passt der name nicht wirklich
 		
 		batchFunction("color a");
+		batchFunction("mode con: cols=" + (x_value+2) + " lines=" + (y_value+2));	//setzt richtige cmd größe
 		move_player();
 
 		p.setyPos(y_value / 2);

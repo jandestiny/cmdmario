@@ -31,7 +31,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE �NDERUNGE
 	private static int score = 0;
 	private static int delay = 32;
 	private static String[] b_colors= {"color F0","color 0F", "color 1F"};
-	private static int boss_frame = 100;
+	private static int boss_frame = 800;
 
 	// Anzahl an Ticks die Loop durchlaufen hat
 	private static int ticks = 0;

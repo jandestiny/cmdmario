@@ -65,7 +65,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE �NDERUNGE
 				boss_stage();
 			}
 
-			// Bewegt Spieler Projektile
+			// Bewegt Spieler Projektile bei jedem Frame
 			move_projectiles();
 
 			// Gibt Feld aus
@@ -73,7 +73,7 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE �NDERUNGE
 
 			if (ticks % 2 == 0) {
 
-				// Bewegt alle bewegbaren Objekte eine Stelle nach links
+				// Bewegt alle bewegbaren Objekte eine Stelle nach links (bei jedem zweiten Frame)
 				move_field();
 
 				if (ticks % 8 == 0 && ticks > 10) {

@@ -104,6 +104,8 @@ public class Game_Loop {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE �NDERUNGE
 
 		}
 		display_field("    Game Over!");	//Anzeige von GameOver in ActionBar
+		
+		batchFunction("PAUSE");
 
 		System.exit(0);
 

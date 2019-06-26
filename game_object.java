@@ -1,22 +1,22 @@
 package cmdmario_project;
 
-public class game_object {
+public class Game_object {
 
 	private int xPos, yPos;
 	private boolean canMove, isSolid;
 	private char skin = ' ';
 	
 	
-	//empty field constructor **FRAGE: das hier führt meiner Meinung nach zu Verwirrung und erleichtert nur sehr wenig Schreibarbeit. Wirkt so, als würde man ein GameObject ohne Skin erstellen**
-	public game_object() {
+	//Leeres transparentes GameObject 
+	public Game_object() {
 		super();
 		this.isSolid = false;
 		this.setSkin(' ');
 	}
 
 	
-	//Spielfeldrand 
-	public game_object(char skin) {
+	//NULL-GameObject
+	public Game_object(char skin) {
 		super();
 		this.skin = skin;
 		this.setSolid(true);

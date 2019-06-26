@@ -1,10 +1,10 @@
 package cmdmario_project;
 
-public class boss extends game_object {
+public class Boss extends Game_object {
 
 	private int lifes;
 
-	public boss() {
+	public Boss() {
 		super();
 		this.setCanMove(false);
 		this.setSolid(true);

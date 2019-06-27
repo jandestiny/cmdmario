@@ -1,12 +1,12 @@
 package cmdmario_project;
 
-public class player extends game_object {
+public class Player extends Game_object {
 
 	private int lives;
-
+	private boolean controlsEnabled = true;
 	private int shot_counter = 0;
 	
-	public player() {
+	public Player() {
 		super();
 		this.lives = 3;
 		this.setCanMove(false);
@@ -28,6 +28,14 @@ public class player extends game_object {
 
 	public void setShot_counter(int shot_counter) {
 		this.shot_counter = shot_counter;
+	}
+
+	public boolean getControlsEnabled() {
+		return controlsEnabled;
+	}
+
+	public void setControlsEnabled(boolean controlsEnabled) {
+		this.controlsEnabled = controlsEnabled;
 	}
 	
 	

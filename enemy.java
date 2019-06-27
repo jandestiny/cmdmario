@@ -1,8 +1,8 @@
 package cmdmario_project;
 
-public class enemy extends game_object {
+public class Enemy extends Game_object {
 
-	public enemy() {
+	public Enemy() {
 		super();
 		
 		this.setSkin('{');

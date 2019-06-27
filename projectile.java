@@ -1,18 +1,18 @@
 package cmdmario_project;
 
-public class projectile extends game_object{
+public class Projectile extends Game_object{
 
-	private boolean p_projectile;	//**Name ändern bitte**
+	private boolean player_projectile;
 	
-	public projectile(boolean p_projectile) {
-		this.p_projectile = p_projectile;
+	public Projectile(boolean p_projectile) {
+		this.player_projectile = p_projectile;
 		this.setCanMove(false);
 		this.setSkin('-');
 		this.setSolid(false);
 	}
 
-	public boolean isP_projectile() {
-		return p_projectile;
+	public boolean isPlayer_projectile() {
+		return player_projectile;
 	}
 
 }

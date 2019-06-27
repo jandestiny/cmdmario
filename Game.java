@@ -2,6 +2,8 @@ package cmdmario_project;
 
 import java.io.IOException;
 import java.util.Random;
+import java.util.Scanner;
+
 import javax.swing.JFrame;
 
 public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURCHFueHREN, BEVOR WIR UNS BESPROCHEN HABEN
@@ -50,9 +52,9 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 	public static int xLength = 70;	//Breite der Spielfeld Matrix, Standard 50
 	public static int yLength = 15;	//Laenge der Spielfeld Matrix, Standard 10
 	public static int boss_hp = 3;	//Anzahl Leben des ersten Bosses
-	public static int delay = 25;	//Zeitlicher Abstand in ms zwischen Bildschirmaktualisierungen
+	public static int delay = 30;	//Zeitlicher Abstand in ms zwischen Bildschirmaktualisierungen
 	public static String[] cmdColors= {"color F0","color 0F", "color 1F"};	//Verschiedene Farben nach Levelabschl�ssen
-	public static int ticksToBoss = 100;	//Tick des naechsten Bosskampfes
+	public static int ticksToBoss = 500;	//Tick des naechsten Bosskampfes
 	
 	//Globale Variablen
 	public static Player player = new Player();	//Player Objekt
@@ -72,13 +74,14 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 	
 	
 	public static void main(String[] args) throws InterruptedException, IOException {
-		init();
+		menu();
 	}
 	
 	public static void init() throws InterruptedException, IOException {	//Initialisierung der Spielfeld-Matrix (Hintergrund, Spielerplayer.sitionierung, Raender, Ende
 		
 		//****INITIALISIERUNG****
 		
+		batchFunction("cls");
 		batchFunction("color a");	//cmd farbe �ndern
 		batchFunction("mode con: cols=" + (xLength+2) + " lines=" + (yLength+2));	//setzt richtige cmd groesse
 		
@@ -100,6 +103,36 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 		
 		System.exit(0);	//Prozess des Spiels beenden
 
+	}
+	
+	public static void menu() throws InterruptedException, IOException {
+		Scanner scan = new Scanner(System.in);
+		char option = ' ';
+		
+		
+		while(option != 'x') {
+			batchFunction("cls");
+			System.out.println("************************\nWILLKOMMEN BEI CMD-MARIO V1.0\n************************\n");
+			System.out.print("Play - press p\nExit - press x\n\nInput: ");
+			option = scan.next().charAt(0);
+			scan.nextLine();
+			
+			switch(option) {
+			case 'p': init();
+			break;
+			
+			case 'x': 	jf.dispose();
+						display_field("Game Over!");	//Anzeige von GameOver in ActionBar
+						batchFunction("pause");//Auf Eingabe warten, bevor sich die Konsole schlie�t
+						System.exit(0);	//Prozess des Spiels beenden
+			break;
+			
+			default:
+			}
+		}
+		
+		scan.close();
+		
 	}
 	
 	public static void gameLoop() throws InterruptedException, IOException{

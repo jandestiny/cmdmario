@@ -28,6 +28,7 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 	 * -alle 'private' Variablen und Funktionen auf 'public' gesetzt
 	 * -Player.ControlsEnabled eingefügt : siehe player Klasse + handleControls()
 	 * -Verhalten des Bosses nun in "bossAI"(alt)/"bossAI2"(neu) -> muss noch kommentiert werden
+	 * -menu() eingefügt
 	 * 
 	 * -Variablen Namensänderung:
 	 * 	x_value, y_value -> xLength, yLength
@@ -64,7 +65,8 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 	public static int ticks = 0;	// Anzahl an Schleifen-Iterationen
 	public static Game_object[][] field = new Game_object[yLength][xLength];	//Erstellung der Spielfeld-Matrix
 	public static Random randomGenerator = new Random();
-	public static JFrame jf = initJFrame();	//Erstellt JFrame für KeyHandler Input
+	public static JFrame jf;	//Ermoeglicht Zugriff auf JFrame an jeder Stelle im Programm
+	public static Scanner scan = new Scanner(System.in);
 	
 	//Tick Variablen
 	public static int field_ticks = 2;
@@ -80,58 +82,48 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 	public static void init() throws InterruptedException, IOException {	//Initialisierung der Spielfeld-Matrix (Hintergrund, Spielerplayer.sitionierung, Raender, Ende
 		
 		//****INITIALISIERUNG****
-		
-		batchFunction("cls");
+		batchFunction("cls");	//cmd fenster leeren
 		batchFunction("color a");	//cmd farbe �ndern
-		batchFunction("mode con: cols=" + (xLength+2) + " lines=" + (yLength+2));	//setzt richtige cmd groesse
+		batchFunction("mode con: cols=" + (xLength+2) + " lines=" + (yLength+2));	//setzt richtige cmd fenster groesse
 		
 
-		//Spieler Koordinaten initialisieren
+		//Spieler Koordinaten & leben initialisieren
 		player.setyPos(yLength / 2);
 		player.setxPos(4);
+		player.setLives(3);
+		score = 0;
 
 		initField();	//NULL-Matrix mit Raendern sowie leeren Objekten f�llen
-		
+		jf = initJFrame();	//Erstellt JFrame für KeyHandler Input
 		
 		//****SPIEL-LOOP****
 		gameLoop();	//Start der Spiele-Schleife
 
-		//****ENDE****
 		jf.dispose();
-		display_field("Game Over!");	//Anzeige von GameOver in ActionBar
-		batchFunction("pause");//Auf Eingabe warten, bevor sich die Konsole schlie�t
-		
-		System.exit(0);	//Prozess des Spiels beenden
 
 	}
 	
 	public static void menu() throws InterruptedException, IOException {
-		Scanner scan = new Scanner(System.in);
 		char option = ' ';
 		
-		
-		while(option != 'x') {
 			batchFunction("cls");
-			System.out.println("************************\nWILLKOMMEN BEI CMD-MARIO V1.0\n************************\n");
+			System.out.println("************************\nWELCOME TO CMD-MARIO V1.0\n************************\n");
 			System.out.print("Play - press p\nExit - press x\n\nInput: ");
 			option = scan.next().charAt(0);
 			scan.nextLine();
 			
 			switch(option) {
-			case 'p': init();
-			break;
+			case 'p': 
+				init();
+			    menu();
+			    break;
 			
-			case 'x': 	jf.dispose();
-						display_field("Game Over!");	//Anzeige von GameOver in ActionBar
-						batchFunction("pause");//Auf Eingabe warten, bevor sich die Konsole schlie�t
-						System.exit(0);	//Prozess des Spiels beenden
-			break;
+			case 'x': 	
+				System.exit(0);	//Prozess des Spiels beenden
+				break;
 			
 			default:
 			}
-		}
-		
-		scan.close();
 		
 	}
 	
@@ -155,8 +147,13 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 					jf.requestFocus();
 
 					ticks++;
+					
+					Thread.sleep(delay);
 
 				}
+				
+				display_field("Game Over!");	//Anzeige von GameOver in ActionBar
+				Thread.sleep(2000);
 	}
 	
 	public static void handleTicks() {
@@ -223,6 +220,8 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 			
 			field[boss.getyPos()][boss.getxPos()] = new Game_object();	//Boss wird am Ende jedes Durchgangs geloescht, sodass er weg ist, wenn er keine Leben mehr hat
 			ticks++;
+			
+			Thread.sleep(delay);
 		}
 		
 		//Entweder Spieler oder Boss tot, dann:
@@ -236,11 +235,7 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 		//Spiel verschnellern nach erfolgreichem Besiegen
 		
 //		if(delay >= 10) {
-//			delay -= 5;	//Spiel um 2ms verschnellern, soalnge das delay noch �ber 10ms ist
-//		}
-		
-//		if(field_ticks > 1) {
-//			field_ticks--;
+//			delay -= 5;	//Spiel um 2ms verschnellern, solange das delay noch �ber 10ms ist
 //		}
 	}
 	
@@ -359,12 +354,6 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 		}
 		
 		System.out.print(field_string);
-		
-		try {
-			Thread.sleep(delay);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	public static void display_field(){	//Schreibt Objekt-Skins in einen String und gibt diesen aus & aktualisiert ActionBar mit zusuetzlichem Text  
@@ -382,12 +371,6 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 		}
 		
 		System.out.print(field_string);
-		
-		try {
-			Thread.sleep(delay);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public static void generate_obstacle() {	//Erstellt Hindernis im Spiel (Wand) und spawnt diese am rechten Ende der Matrix
@@ -472,7 +455,7 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 
 	}
 
-	public static void enemy_projectile() {	//Luesst Boss schieueen
+	public static void enemy_projectile() {	//Laesst Boss schiessen
 
 		int x = boss.getxPos();
 		int y = boss.getyPos();
@@ -552,8 +535,7 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 		}
 	}
 
-	public static JFrame initJFrame() {	//Erstellt 1x1 JFrame mit KeyHandler damit Eingaben ueber die Tastatur verarbeitet werden kuennen
-		// BITTE NAMEN ÄNDERN (zb. initJFrame)
+	public static JFrame initJFrame() {	//Erstellt 1x1 JFrame mit KeyHandler damit Eingaben ueber die Tastatur verarbeitet werden koennen
 		JFrame jf = new JFrame();
 		jf.isAlwaysOnTop();
 		jf.setSize(1,1);
@@ -622,9 +604,7 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 		break;
 		
 		case 'x':	//exit
-			display_field("Good Bye!");
-			jf.dispose();
-			System.exit(0);
+			player.setLives(0);
 		break;
 		default:
 		}

@@ -288,7 +288,7 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 			move_field();
 			move_projectiles();
 			display_field("BOSS INCOMING!");
-			Thread.sleep(25);	//32ms delay, RUHE VOR DEM STURM
+			Thread.sleep(delay+5);	//Verlangsamung, um den Bossfight einzuleiten "Ruhe vor dem Sturm"
 			field[player.getyPos()][player.getxPos()] = player;
 			counter++;
 		}

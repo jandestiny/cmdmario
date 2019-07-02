@@ -206,7 +206,7 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 
 		field[player.getyPos()][player.getxPos()] = player;	//Spieler wird platziert
 		
-		boss_intro(400);
+		boss_intro();
 
 		while (boss.getLifes() > 0 && player.getLives() > 0) {	//Solange beide Entitaeten noch am Leben sind, laeuft der Bossfight
 
@@ -294,7 +294,7 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 		}
 	}
 
-	public static void boss_intro(int delay) throws InterruptedException, IOException { //Einleitender "Tanz" des Bosses
+	public static void boss_intro() throws InterruptedException, IOException { //Einleitender "Tanz" des Bosses
 
 		player.setControlsEnabled(false);
 		
@@ -316,7 +316,7 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 			
 			field[player.getyPos()][player.getxPos()] = player;
 			display_field();
-			Thread.sleep(500);
+			Thread.sleep(delay);
 			
 		}
 

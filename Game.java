@@ -157,8 +157,8 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 	}
 	
 	public static void handleTicks() {
-		if (ticks % field_ticks == 0) {	// Bewegt alle bewegbaren Objekte eine Stelle nach links (bei jedem zweiten Frame)
-			move_field();	
+		if (ticks % field_ticks == 0) {	
+			move_field();	// Bewegt alle bewegbaren Objekte eine Stelle nach links (bei jedem zweiten Frame)
 		}
 		
 		if (ticks % enemy_ticks == 0 && ticks > 10) {	// Generiert an zufuelliger Stelle Gegner
@@ -262,23 +262,21 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 			enemy_projectile();
 		}
 		
-		int random = randomGenerator.nextInt(10);
+		int random = randomGenerator.nextInt(10);	//Erstellung eines zufälligen Wertes zwischen 0 und 9
 		
-		if(boss.getyPos() == player.getyPos()) {
-			if(!(random == 0)) {
-				if(random <= 5) {
-					if(boss.getyPos() < yLength - 2) {
+		if(boss.getyPos() == player.getyPos()) {	//Wenn sich Boss und Spieler in der gleichen Zeile befinden
+				if(random <= 5) {	//bewegt er sich mit einer Wahrscheinlichkeit von 55% nach oben
+					if(boss.getyPos() < yLength - 2) {	//Sofern die Spielfeldumrandung nicht im Weg ist
 						field[boss.getyPos()][boss.getxPos()] = new Game_object();
 						boss.setyPos(boss.getyPos() + 1);
 					}
-				}else {
-					if(boss.getyPos() > 2) {
+				}else {				//und mit 45% nach unten
+					if(boss.getyPos() > 2) {//Sofern die Spielfeldumrandung nicht im Weg ist
 						field[boss.getyPos()][boss.getxPos()] = new Game_object();
 						boss.setyPos(boss.getyPos() - 1);
 						}
 					}
 				}
-			}
 		}
 	
 	public static void clear_field() throws InterruptedException {
@@ -471,10 +469,10 @@ public class Game {	//**ACHTUNG: DOKUMENT GESPERRT, BITTE KEINE ueNDERUNGEN DURC
 
 		for (int i = 2; i < yLength - 1; i++) {
 			for (int j = 1; j < xLength - 1; j++) {
-				// Test oboss.gewuehltes Feld ein bewegbares ist
+				// Test, ob gewaehltes Feld ein bewegbares ist
 				if (field[i][j].isCanMove()) {							//Objekt bewegbar
 
-					// Testen ob es sich um Hinderniss handelt
+					// Testen ob es sich um Hindernis handelt
 					if (field[i][j].isSolid()) {						//Objekt bewegbar und solide
 						if (field[i][j - 1] instanceof Player) {		//Objekt bewegbar und solide + Kollision mit Spieler am linken Spielfeldrand
 							if (player.getxPos() == 1) {		

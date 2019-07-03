@@ -15,7 +15,7 @@ public class Game_object {
 	}
 
 	
-	//NULL-GameObject
+	//GameObject mit grafischer Darstellung
 	public Game_object(char skin) {
 		super();
 		this.skin = skin;

@@ -1,2 +1,2 @@
 # cmdmario_project
-cmdmario for uni
+Uni Programming Project for BSRN-Lecture.
